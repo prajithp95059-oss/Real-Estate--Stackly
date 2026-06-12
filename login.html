@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Login — STACKLY Real Estate</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="main.js" defer></script>
+</head>
+<body>
+<div class="auth-page">
+  <!-- LEFT IMAGE -->
+  <div class="auth-image">
+    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=90" alt="Luxury Home">
+    <div class="auth-image-overlay">
+      <div class="auth-image-quote">
+        <blockquote>"A home is not just a place — it's the beginning of your legacy."</blockquote>
+        <cite>— STACKLY Design Philosophy</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div class="auth-form-side">
+    <div class="auth-logo">
+      <img src="logo-stackly.png" alt="STACKLY" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--navy);display:none">STACK<span style="color:var(--gold)">LY</span></span>
+    </div>
+    <div class="auth-tabs">
+      <div class="auth-tab active" data-form="loginForm">Sign In</div>
+      <div class="auth-tab" data-form="registerForm">Register</div>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div class="auth-form auth-form-content active" id="loginForm">
+      <h2>Welcome Back</h2>
+      <p>Sign in to your STACKLY account to track your enquiries and saved properties.</p>
+      <form onsubmit="event.preventDefault(); window.location.href='dashboard-user.html'">
+        <div class="form-row" style="margin-bottom:16px">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="you@email.com" required>
+        </div>
+        <div class="form-row" style="margin-bottom:8px">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" placeholder="••••••••" required>
+        </div>
+        <div style="text-align:right;margin-bottom:20px">
+          <a href="#" style="font-size:0.8rem;color:var(--gold)">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-navy" style="width:100%;justify-content:center;padding:15px;font-size:0.88rem">Sign In <i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+      <div class="auth-divider">or continue with</div>
+      <div style="display:flex;gap:12px">
+        <button class="btn btn-outline" style="flex:1;justify-content:center;gap:8px"><i class="fab fa-google" style="color:#EA4335"></i> Google</button>
+        <button class="btn btn-outline" style="flex:1;justify-content:center;gap:8px"><i class="fab fa-facebook-f" style="color:#1877F2"></i> Facebook</button>
+      </div>
+      <p style="text-align:center;margin-top:20px;font-size:0.82rem;color:var(--text-muted)">New to STACKLY? <a href="#" style="color:var(--gold);font-weight:600">Create an account</a></p>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div class="auth-form auth-form-content" id="registerForm" style="display:none">
+      <h2>Create Account</h2>
+      <p>Join 2,400+ families who trust STACKLY for their dream home.</p>
+      <form onsubmit="event.preventDefault(); window.location.href='dashboard-user.html'">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+          <div><label class="form-label">First Name</label><input type="text" class="form-input" placeholder="Rajesh" required></div>
+          <div><label class="form-label">Last Name</label><input type="text" class="form-input" placeholder="Kumar" required></div>
+        </div>
+        <div class="form-row" style="margin-bottom:16px">
+          <label class="form-label">Phone</label>
+          <input type="tel" class="form-input" placeholder="+91 98400 00000" required>
+        </div>
+        <div class="form-row" style="margin-bottom:16px">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="you@email.com" required>
+        </div>
+        <div class="form-row" style="margin-bottom:20px">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" placeholder="Min. 8 characters" required>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:15px">Create Account <i class="fa-solid fa-user-plus"></i></button>
+      </form>
+      <p style="text-align:center;margin-top:16px;font-size:0.78rem;color:var(--text-muted)">By registering, you agree to our <a href="#" style="color:var(--gold)">Privacy Policy</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.auth-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.auth-form-content').forEach(f => f.style.display = 'none');
+    document.getElementById(tab.dataset.form).style.display = 'block';
+  });
+});
+</script>
+</body>
+</html>

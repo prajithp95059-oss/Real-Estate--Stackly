@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Blog — STACKLY Real Estate</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+<script src="main.js" defer></script>
+<style>
+/* ── BLOG PAGE SPECIFIC ─────────────────────────────────── */
+
+/* Filter bar */
+.blog-filter-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  align-items: center;
+}
+.blog-filter-btn {
+  padding: 8px 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  border: 1.5px solid var(--border);
+  color: var(--text-mid);
+  background: var(--white);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.blog-filter-btn.active,
+.blog-filter-btn:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--gold);
+}
+
+/* Blog card hover lift */
+.blog-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Read time badge */
+.blog-read-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--ivory-mid);
+  padding: 3px 10px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+/* Category pill on card */
+.blog-cat-pill {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(201,168,76,0.12);
+  color: var(--gold-dark);
+  margin-bottom: 10px;
+}
+
+/* Author mini */
+.blog-author-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ivory-mid);
+}
+.blog-author-mini img {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--gold);
+}
+.blog-author-mini span {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-mid);
+}
+.blog-author-mini small {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+/* Sidebar newsletter input */
+.sidebar-email-input {
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(201,168,76,0.3);
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
+  font-size: 0.86rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.25s;
+  font-family: var(--font-sans);
+}
+.sidebar-email-input::placeholder { color: rgba(255,255,255,0.38); }
+.sidebar-email-input:focus { border-color: var(--gold); background: rgba(255,255,255,0.1); }
+
+/* Tag pills */
+.tag-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.76rem;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--white);
+}
+.tag-pill:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+/* Stats ticker */
+.blog-stat-strip {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.blog-stat-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.blog-stat-item {
+  text-align: center;
+}
+.blog-stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.blog-stat-label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* CTA inlined in blog grid */
+.blog-cta-card {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+.blog-cta-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.blog-cta-card p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+}
+.page-btn {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--text-mid);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s;
+  font-family: var(--font-sans);
+}
+.page-btn.active { background: var(--navy); border-color: var(--navy); color: var(--gold); }
+.page-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+.page-btn.arrow { width: auto; padding: 0 16px; gap: 6px; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* Popular post hover */
+.popular-post-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--ivory-mid);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.popular-post-item:last-child { border-bottom: none; padding-bottom: 0; }
+.popular-post-item:hover { opacity: 0.75; }
+.popular-post-item img {
+  width: 64px; height: 64px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+/* Responsive sidebar stack */
+@media (max-width: 1024px) {
+  .blog-layout { grid-template-columns: 1fr !important; }
+  .blog-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+@media (max-width: 640px) {
+  .blog-sidebar { grid-template-columns: 1fr; }
+  .blog-filter-bar { gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar scrolled">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo-stackly.png" alt="STACKLY" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-text" style="display:none">STACK<span>LY</span></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="projects.html" class="nav-link">Projects</a></li>
+      <li><a href="blog.html" class="nav-link active">Blog</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="login.html" class="btn btn-gold nav-cta">Login</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="projects.html" class="nav-link">Projects</a>
+  <a href="blog.html" class="nav-link">Blog</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <a href="login.html" class="btn btn-gold" style="margin-top:12px">Login</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Expert Insights</div>
+    <h1>Real Estate <em style="color:var(--gold);font-style:italic">Intelligence</em></h1>
+    <div class="gold-divider"></div>
+    <p style="color:rgba(255,255,255,0.6);max-width:520px;font-size:1rem;margin-top:12px;line-height:1.75">In-depth analysis, buying guides, design trends, and market intelligence from STACKLY's team of property experts.</p>
+    <nav class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Blog</span></nav>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="blog-stat-strip">
+  <div class="container">
+    <div class="blog-stat-strip-inner">
+      <div class="blog-stat-item">
+        <div class="blog-stat-num">48+</div>
+        <div class="blog-stat-label">Articles Published</div>
+      </div>
+      <div class="blog-stat-item">
+        <div class="blog-stat-num">12K+</div>
+        <div class="blog-stat-label">Monthly Readers</div>
+      </div>
+      <div class="blog-stat-item">
+        <div class="blog-stat-num">6</div>
+        <div class="blog-stat-label">Expert Authors</div>
+      </div>
+      <div class="blog-stat-item">
+        <div class="blog-stat-num">4.9★</div>
+        <div class="blog-stat-label">Reader Rating</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED POST -->
+<section class="section-pad" style="background:var(--ivory)">
+  <div class="container">
+    <div class="eyebrow">Featured Article</div>
+    <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:1.2fr 1fr;min-height:460px">
+      <div style="overflow:hidden;position:relative">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=90" alt="Featured" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="position:absolute;top:20px;left:20px">
+          <span style="background:var(--gold);color:var(--navy);font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:5px 14px;border-radius:50px">Market Insights</span>
+        </div>
+      </div>
+      <div style="background:var(--navy);padding:52px 48px;display:flex;flex-direction:column;justify-content:center">
+        <div style="display:inline-flex;align-items:center;gap:6px;margin-bottom:20px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block"></span>
+          <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-light)">Editor's Pick</span>
+        </div>
+        <h2 style="color:var(--white);font-size:clamp(1.4rem,2.2vw,2rem);margin-bottom:14px;line-height:1.2">Why Chennai's OMR Corridor is India's Next Real Estate Hotspot</h2>
+        <p style="color:rgba(255,255,255,0.6);margin-bottom:24px;font-size:0.9rem;line-height:1.75">Deep infrastructure investment and the IT sector's continued expansion are reshaping property valuations along the OMR stretch. Metro Phase II extensions, six-lane highway upgrades, and the arrival of global tech campuses are converging to create a once-in-a-decade opportunity for buyers.</p>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;padding:14px;background:rgba(255,255,255,0.05);border-radius:var(--radius-md);border:1px solid rgba(201,168,76,0.15)">
+          <img src="https://i.pravatar.cc/40?img=47" alt="Author" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--gold);flex-shrink:0">
+          <div>
+            <div style="font-size:0.85rem;color:var(--white);font-weight:600">Ananya Krishnan</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.45)">Senior Market Analyst · <span style="color:var(--gold)">May 28, 2025</span> · 8 min read</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#" class="btn btn-gold" style="padding:11px 24px;font-size:0.8rem">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#" class="btn btn-outline" style="padding:11px 24px;font-size:0.8rem"><i class="fa-regular fa-bookmark"></i> Save</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN BLOG GRID + SIDEBAR -->
+<section class="section-pad" style="background:var(--white)">
+  <div class="container blog-layout" style="display:grid;grid-template-columns:1fr 320px;gap:52px;align-items:start">
+
+    <!-- LEFT: ARTICLES -->
+    <div>
+      <!-- Filter bar -->
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:32px">
+        <div>
+          <div class="eyebrow">All Articles</div>
+          <h3 class="section-title">Latest <span>Posts</span></h3>
+        </div>
+        <div class="blog-filter-bar" style="margin-bottom:0">
+          <button class="blog-filter-btn active" onclick="filterBlog(this,'all')">All</button>
+          <button class="blog-filter-btn" onclick="filterBlog(this,'market')">Market</button>
+          <button class="blog-filter-btn" onclick="filterBlog(this,'buying')">Buying</button>
+          <button class="blog-filter-btn" onclick="filterBlog(this,'design')">Design</button>
+          <button class="blog-filter-btn" onclick="filterBlog(this,'investment')">Investment</button>
+          <button class="blog-filter-btn" onclick="filterBlog(this,'lifestyle')">Lifestyle</button>
+        </div>
+      </div>
+
+      <!-- GRID OF CARDS -->
+      <div class="grid-2" style="gap:28px" id="blogGrid">
+
+        <!-- Card 1 -->
+        <div class="blog-card" data-cat="buying">
+          <div class="blog-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=85" alt="" loading="lazy"></div>
+          <div class="blog-body">
+            <span class="blog-cat-pill">Home Buying</span>
+            <div class="blog-read-time"><i class="fa-regular fa-clock"></i> 6 min read</div>
+            <div class="blog-title">5 Things Every Luxury Buyer Must Verify Before Signing</div>
+            <p class="blog-excerpt">From RERA registration status to possession indemnity clauses — this checklist could save you lakhs and years of heartbreak...</p>
+            <div class="blog-author-mini">
+              <img src="https://i.pravatar.cc/40?img=12" alt="">
+              <div><span>Rohit Sharma</span><small>Apr 12, 2025</small></div>
+            </div>
+            <div class="blog-meta" style="margin-top:12px">
+              <span><i class="fa-regular fa-eye"></i> 3.2K views</span>
+              <a href="#" class="read-more">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="blog-card" data-cat="design">
+          <div class="blog-img"><img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=600&q=85" alt="" loading="lazy"></div>
+          <div class="blog-body">
+            <span class="blog-cat-pill">Design</span>
+            <div class="blog-read-time"><i class="fa-regular fa-clock"></i> 5 min read</div>
+            <div class="blog-title">Biophilic Design: The Luxury Trend Transforming Indian Apartments</div>
+            <p class="blog-excerpt">How nature-integrated architecture with living walls, water features, and sky gardens is redefining what premium looks like...</p>
+            <div class="blog-author-mini">
+              <img src="https://i.pravatar.cc/40?img=25" alt="">
+              <div><span>Priya Nair</span><small>Mar 5, 2025</small></div>
+            </div>
+            <div class="blog-meta" style="margin-top:12px">
+              <span><i class="fa-regular fa-eye"></i> 2.8K views</span>
+              <a href="#" class="read-more">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="blog-card" data-cat="investment">
+          <div class="blog-img"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=85" alt="" loading="lazy"></div>
+          <div class="blog-body">
+            <span class="blog-cat-pill">Investment</span>
+            <div class="blog-read-time"><i class="fa-regular fa-clock"></i> 7 min read</div>
+            <div class="blog-title">Pre-Launch vs. Ready-to-Move: Which Gets You More Value?</div>
+            <p class="blog-excerpt">A data-driven breakdown of risk profiles, capital appreciation timelines, and lifestyle trade-offs for today's discerning buyer...</p>
+            <div class="blog-author-mini">
+              <img src="https://i.pravatar.cc/40?img=33" alt="">
+              <div><span>Karthik Menon</span><small>Feb 18, 2025</small></div>
+            </div>
+            <div class="blog-meta" style="margin-top:12px">
+              <span><i class="fa-regular fa-eye"></i> 4.1K views</span>
+              <a href="#" class="read-more">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="blog-card" data-cat="lifestyle">
+          <div class="blog-img"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=85" alt="" loading="lazy"></div>
+          <div class="blog-body">
+            <span class="blog-cat-pill">Lifestyle</span>
+            <div class="blog-read-time"><i class="fa-regular fa-clock"></i> 4 min read</div>
+            <div class="blog-title">The Art of the Sky Garden: How Chennai Rooftops Are Being Reimagined</div>
+            <p class="blog-excerpt">Developers and residents are reclaiming vertical space for community, wellness, and greenery high above the city...</p>
+            <div class="blog-author-mini">
+              <img src="https://i.pravatar.cc/40?img=47" alt="">
+              <div><span>Ananya Krishnan</span><small>Jan 30, 2025</small></div>
+            </div>
+            <div class="blog-meta" style="margin-top:12px">
+              <span><i class="fa-regular fa-eye"></i> 1.9K views</span>
+              <a href="#" class="read-more">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA CARD inlined in grid -->
+        <div class="blog-cta-card" data-cat="all">
+          <div style="width:48px;height:48px;border-radius:var(--radius-md);background:rgba(201,168,76,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--gold);font-size:1.3rem"><i class="fa-solid fa-envelope-open-text"></i></div>
+          <h4>Get Market Reports in Your Inbox</h4>
+          <p>Join 12,000+ readers who get STACKLY's monthly Chennai real estate intelligence report — free.</p>
+          <a href="#newsletter" class="btn btn-gold" style="align-self:flex-start;padding:11px 22px;font-size:0.8rem">Subscribe Free <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="blog-card" data-cat="market">
+          <div class="blog-img"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=85" alt="" loading="lazy"></div>
+          <div class="blog-body">
+            <span class="blog-cat-pill">Market Insights</span>
+            <div class="blog-read-time"><i class="fa-regular fa-clock"></i> 9 min read</div>
+            <div class="blog-title">Chennai's Micro-Markets in 2025: Where Smart Money Is Moving</div>
+            <p class="blog-excerpt">Velachery, Sholinganallur, and Perumbakkam are emerging as the city's highest-appreciation micro-markets. Here's the data...</p>
+            <div class="blog-author-mini">
+              <img src="https://i.pravatar.cc/40?img=15" alt="">
+              <div><span>Vijay Raghavan</span><small>Jan 14, 2025</small></div>
+            </div>
+            <div class="blog-meta" style="margin-top:12px">
+              <span><i class="fa-regular fa-eye"></i> 5.6K views</span>
+              <a href="#" class="read-more">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="blog-card" data-cat="design">
+          <div class="blog-img"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=85" alt="" loading="lazy"></div>
+          <div class="blog-body">
+            <span class="blog-cat-pill">Design</span>
+            <div class="blog-read-time"><i class="fa-regular fa-clock"></i> 5 min read</div>
+            <div class="blog-title">Smart Home Integration: The Standard That Buyers Now Expect</div>
+            <p class="blog-excerpt">Voice-controlled lighting, app-managed security, and AI climate systems are no longer differentiators — they're baseline expectations...</p>
+            <div class="blog-author-mini">
+              <img src="https://i.pravatar.cc/40?img=22" alt="">
+              <div><span>Deepa Suresh</span><small>Dec 20, 2024</small></div>
+            </div>
+            <div class="blog-meta" style="margin-top:12px">
+              <span><i class="fa-regular fa-eye"></i> 2.4K views</span>
+              <a href="#" class="read-more">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="blog-card" data-cat="investment">
+          <div class="blog-img"><img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=600&q=85" alt="" loading="lazy"></div>
+          <div class="blog-body">
+            <span class="blog-cat-pill">Investment</span>
+            <div class="blog-read-time"><i class="fa-regular fa-clock"></i> 6 min read</div>
+            <div class="blog-title">Understanding RERA 2.0: What the New Amendments Mean for Buyers</div>
+            <p class="blog-excerpt">The 2024 RERA amendments introduce stricter builder accountability, faster grievance resolution, and enhanced escrow protection...</p>
+            <div class="blog-author-mini">
+              <img src="https://i.pravatar.cc/40?img=33" alt="">
+              <div><span>Karthik Menon</span><small>Dec 5, 2024</small></div>
+            </div>
+            <div class="blog-meta" style="margin-top:12px">
+              <span><i class="fa-regular fa-eye"></i> 6.2K views</span>
+              <a href="#" class="read-more">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="blog-card" data-cat="lifestyle">
+          <div class="blog-img"><img src="https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?w=600&q=85" alt="" loading="lazy"></div>
+          <div class="blog-body">
+            <span class="blog-cat-pill">Lifestyle</span>
+            <div class="blog-read-time"><i class="fa-regular fa-clock"></i> 4 min read</div>
+            <div class="blog-title">From Gym to Spa: The Amenity Arms Race in Chennai's Luxury Towers</div>
+            <p class="blog-excerpt">Developers are now offering golf simulators, cryotherapy suites, and rooftop helipads to win over ultra-HNI buyers...</p>
+            <div class="blog-author-mini">
+              <img src="https://i.pravatar.cc/40?img=25" alt="">
+              <div><span>Priya Nair</span><small>Nov 18, 2024</small></div>
+            </div>
+            <div class="blog-meta" style="margin-top:12px">
+              <span><i class="fa-regular fa-eye"></i> 3.7K views</span>
+              <a href="#" class="read-more">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="blog-card" data-cat="market">
+          <div class="blog-img"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=85" alt="" loading="lazy"></div>
+          <div class="blog-body">
+            <span class="blog-cat-pill">Market Insights</span>
+            <div class="blog-read-time"><i class="fa-regular fa-clock"></i> 8 min read</div>
+            <div class="blog-title">NRI Investment in Chennai Real Estate: A Complete 2025 Guide</div>
+            <p class="blog-excerpt">Tax treaties, FEMA regulations, repatriation rules, and the top locations NRI buyers are targeting in the city right now...</p>
+            <div class="blog-author-mini">
+              <img src="https://i.pravatar.cc/40?img=15" alt="">
+              <div><span>Vijay Raghavan</span><small>Nov 2, 2024</small></div>
+            </div>
+            <div class="blog-meta" style="margin-top:12px">
+              <span><i class="fa-regular fa-eye"></i> 7.8K views</span>
+              <a href="#" class="read-more">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="blog-card" data-cat="buying">
+          <div class="blog-img"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=85" alt="" loading="lazy"></div>
+          <div class="blog-body">
+            <span class="blog-cat-pill">Home Buying</span>
+            <div class="blog-read-time"><i class="fa-regular fa-clock"></i> 7 min read</div>
+            <div class="blog-title">How to Negotiate Like a Pro: Getting the Best Price on a Luxury Flat</div>
+            <p class="blog-excerpt">Insider tactics — from timing your offer around project milestones to using comparable sales data as leverage...</p>
+            <div class="blog-author-mini">
+              <img src="https://i.pravatar.cc/40?img=12" alt="">
+              <div><span>Rohit Sharma</span><small>Oct 15, 2024</small></div>
+            </div>
+            <div class="blog-meta" style="margin-top:12px">
+              <span><i class="fa-regular fa-eye"></i> 4.4K views</span>
+              <a href="#" class="read-more">Read <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /blogGrid -->
+
+      <!-- PAGINATION -->
+      <div class="pagination">
+        <button class="page-btn arrow"><i class="fa-solid fa-arrow-left"></i> Prev</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <span style="color:var(--text-muted);font-size:0.85rem">…</span>
+        <button class="page-btn">9</button>
+        <button class="page-btn arrow">Next <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- RIGHT: SIDEBAR -->
+    <aside class="blog-sidebar">
+
+      <!-- Newsletter -->
+      <div id="newsletter" style="background:var(--navy);border-radius:var(--radius-xl);padding:32px 26px;margin-bottom:24px">
+        <div class="eyebrow" style="color:var(--gold-light)">Newsletter</div>
+        <h4 style="color:var(--white);margin-bottom:8px;font-size:1.25rem">Stay Ahead of the Market</h4>
+        <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:18px;line-height:1.7">Monthly insights on Chennai real estate, price trends, and investment opportunities — straight to your inbox.</p>
+        <form style="display:flex;flex-direction:column;gap:10px" onsubmit="handleNewsletterSubmit(event)">
+          <input type="text" placeholder="Your Name" class="sidebar-email-input" style="margin-bottom:0">
+          <input type="email" id="newsletterEmail" placeholder="your@email.com" class="sidebar-email-input" required>
+          <button type="submit" class="btn btn-gold" style="justify-content:center;padding:12px">Subscribe Free <i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+        <p style="font-size:0.68rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:8px"><i class="fa-solid fa-lock" style="margin-right:4px"></i>No spam. Unsubscribe anytime.</p>
+      </div>
+
+      <!-- Browse Topics -->
+      <div style="background:var(--ivory);border-radius:var(--radius-xl);padding:28px 24px;margin-bottom:24px">
+        <h5 style="color:var(--navy);font-family:var(--font-sans);font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Browse Topics</h5>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span class="tag-pill">Market Insights</span>
+          <span class="tag-pill">Home Buying</span>
+          <span class="tag-pill">Design</span>
+          <span class="tag-pill">Investment</span>
+          <span class="tag-pill">Lifestyle</span>
+          <span class="tag-pill">Sustainability</span>
+          <span class="tag-pill">RERA</span>
+          <span class="tag-pill">NRI</span>
+          <span class="tag-pill">Smart Homes</span>
+          <span class="tag-pill">Vastu</span>
+          <span class="tag-pill">Finance</span>
+        </div>
+      </div>
+
+      <!-- Popular Posts -->
+      <div style="background:var(--white);border-radius:var(--radius-xl);padding:28px 24px;box-shadow:var(--shadow-sm);margin-bottom:24px">
+        <h5 style="color:var(--navy);font-family:var(--font-sans);font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px">Most Read</h5>
+        <div>
+          <div class="popular-post-item">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=100&q=70" alt="">
+            <div>
+              <div style="font-size:0.82rem;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:4px">NRI Investment Guide 2025</div>
+              <div style="font-size:0.7rem;color:var(--gold)">Nov 2, 2024 · <span style="color:var(--text-muted)">7.8K views</span></div>
+            </div>
+          </div>
+          <div class="popular-post-item">
+            <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=100&q=70" alt="">
+            <div>
+              <div style="font-size:0.82rem;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:4px">RERA 2.0: What Buyers Need to Know</div>
+              <div style="font-size:0.7rem;color:var(--gold)">Dec 5, 2024 · <span style="color:var(--text-muted)">6.2K views</span></div>
+            </div>
+          </div>
+          <div class="popular-post-item">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=100&q=70" alt="">
+            <div>
+              <div style="font-size:0.82rem;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:4px">OMR Corridor: India's Next Hotspot</div>
+              <div style="font-size:0.7rem;color:var(--gold)">May 28, 2025 · <span style="color:var(--text-muted)">5.6K views</span></div>
+            </div>
+          </div>
+          <div class="popular-post-item">
+            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=100&q=70" alt="">
+            <div>
+              <div style="font-size:0.82rem;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:4px">Pre-Launch vs. Ready-to-Move</div>
+              <div style="font-size:0.7rem;color:var(--gold)">Feb 18, 2025 · <span style="color:var(--text-muted)">4.1K views</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Market Snapshot Widget -->
+      <div style="background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);border-radius:var(--radius-xl);padding:28px 24px;border:1px solid rgba(201,168,76,0.15)">
+        <h5 style="color:var(--gold);font-family:var(--font-sans);font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px"><i class="fa-solid fa-chart-line" style="margin-right:6px"></i>Market Snapshot — Q2 2025</h5>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07)">
+            <span style="font-size:0.82rem;color:rgba(255,255,255,0.65)">Avg Price / sq.ft (Chennai)</span>
+            <div style="text-align:right"><div style="font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:600">₹8,400</div><div style="font-size:0.68rem;color:#22C55E">▲ 12.4% YoY</div></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07)">
+            <span style="font-size:0.82rem;color:rgba(255,255,255,0.65)">OMR Corridor</span>
+            <div style="text-align:right"><div style="font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:600">₹7,200</div><div style="font-size:0.68rem;color:#22C55E">▲ 18.7% YoY</div></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07)">
+            <span style="font-size:0.82rem;color:rgba(255,255,255,0.65)">ECR Beachfront</span>
+            <div style="text-align:right"><div style="font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:600">₹10,100</div><div style="font-size:0.68rem;color:#22C55E">▲ 9.2% YoY</div></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:0.82rem;color:rgba(255,255,255,0.65)">New Launches (Q2)</span>
+            <div style="text-align:right"><div style="font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:600">847 units</div><div style="font-size:0.68rem;color:#FACC15">● Active</div></div>
+          </div>
+        </div>
+        <a href="#" style="display:block;text-align:center;margin-top:18px;font-size:0.75rem;color:var(--gold);font-weight:600;letter-spacing:0.08em">VIEW FULL REPORT <i class="fa-solid fa-arrow-right" style="margin-left:4px"></i></a>
+      </div>
+
+    </aside>
+  </div>
+</section>
+
+<!-- AUTHORS STRIP -->
+<section style="background:var(--ivory);padding:64px 0">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:44px">
+      <div class="eyebrow" style="justify-content:center">Our Writers</div>
+      <h3 class="section-title">Meet the <span>Experts</span></h3>
+      <div class="gold-divider center"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:20px">
+      <div style="text-align:center">
+        <img src="https://i.pravatar.cc/100?img=47" alt="Ananya" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--gold-pale);margin:0 auto 10px;display:block">
+        <div style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:2px">Ananya Krishnan</div>
+        <div style="font-size:0.72rem;color:var(--gold)">Market Analyst</div>
+        <div style="font-size:0.7rem;color:var(--text-muted);margin-top:4px">12 articles</div>
+      </div>
+      <div style="text-align:center">
+        <img src="https://i.pravatar.cc/100?img=12" alt="Rohit" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--gold-pale);margin:0 auto 10px;display:block">
+        <div style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:2px">Rohit Sharma</div>
+        <div style="font-size:0.72rem;color:var(--gold)">Buyer's Advocate</div>
+        <div style="font-size:0.7rem;color:var(--text-muted);margin-top:4px">9 articles</div>
+      </div>
+      <div style="text-align:center">
+        <img src="https://i.pravatar.cc/100?img=25" alt="Priya" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--gold-pale);margin:0 auto 10px;display:block">
+        <div style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:2px">Priya Nair</div>
+        <div style="font-size:0.72rem;color:var(--gold)">Design Editor</div>
+        <div style="font-size:0.7rem;color:var(--text-muted);margin-top:4px">8 articles</div>
+      </div>
+      <div style="text-align:center">
+        <img src="https://i.pravatar.cc/100?img=33" alt="Karthik" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--gold-pale);margin:0 auto 10px;display:block">
+        <div style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:2px">Karthik Menon</div>
+        <div style="font-size:0.72rem;color:var(--gold)">Investment Lead</div>
+        <div style="font-size:0.7rem;color:var(--text-muted);margin-top:4px">11 articles</div>
+      </div>
+      <div style="text-align:center">
+        <img src="https://i.pravatar.cc/100?img=15" alt="Vijay" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--gold-pale);margin:0 auto 10px;display:block">
+        <div style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:2px">Vijay Raghavan</div>
+        <div style="font-size:0.72rem;color:var(--gold)">NRI Specialist</div>
+        <div style="font-size:0.7rem;color:var(--text-muted);margin-top:4px">7 articles</div>
+      </div>
+      <div style="text-align:center">
+        <img src="https://i.pravatar.cc/100?img=22" alt="Deepa" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--gold-pale);margin:0 auto 10px;display:block">
+        <div style="font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:2px">Deepa Suresh</div>
+        <div style="font-size:0.72rem;color:var(--gold)">Smart Home Lead</div>
+        <div style="font-size:0.7rem;color:var(--text-muted);margin-top:4px">6 articles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-stackly.png" alt="STACKLY" class="footer-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--white);display:none">STACK<span style="color:var(--gold)">LY</span></span>
+        <p>Crafting extraordinary living experiences across India's most coveted addresses since 2006.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Projects</a>
+          <a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Services</a>
+          <a href="blog.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blog</a>
+          <a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a>
+          <a href="login.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Login</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Properties</h5>
+        <div class="footer-links">
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Luxury Apartments</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Premium Villas</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Sky Penthouses</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Commercial Spaces</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Upcoming Projects</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, <br>Tamil Nadu  –  636008</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+91 44 4567 8901</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>hello@stackly.in</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon–Sat: 9 AM – 7 PM</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 STACKLY Real Estate. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">RERA Disclosures</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></div>
+<a href="https://wa.me/914445678901" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+  /* ── Hamburger ── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  /* ── Back to top ── */
+  const btt = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('show', window.scrollY > 400);
+  });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── Blog category filter ── */
+  function filterBlog(btn, cat) {
+    document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#blogGrid .blog-card, #blogGrid .blog-cta-card').forEach(card => {
+      const cardCat = card.getAttribute('data-cat');
+      if (cat === 'all' || cardCat === cat || cardCat === 'all') {
+        card.style.display = '';
+        card.style.animation = 'fadeIn 0.35s ease';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  /* ── Newsletter submit ── */
+  function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = '✓ Subscribed!';
+    btn.style.background = 'linear-gradient(135deg,#22C55E,#16A34A)';
+    btn.disabled = true;
+  }
+
+  /* ── Pagination buttons ── */
+  document.querySelectorAll('.page-btn:not(.arrow)').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.page-btn:not(.arrow)').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  /* ── Fade in keyframe ── */
+  const style = document.createElement('style');
+  style.textContent = '@keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }';
+  document.head.appendChild(style);
+</script>
+</body>
+</html>

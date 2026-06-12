@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>My Dashboard — STACKLY</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="main.js" defer></script>
+</head>
+<body>
+<div class="dashboard-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="logo-stackly.png" alt="STACKLY" style="height:32px" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="font-family:var(--font-display);font-size:1.4rem;color:var(--white);display:none">STACK<span style="color:var(--gold)">LY</span></span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <div class="sidebar-link active" data-panel="overview"><i class="fa-solid fa-grid-2"></i><span>Overview</span></div>
+      <div class="sidebar-link" data-panel="savedProps"><i class="fa-solid fa-heart"></i><span>Saved Properties</span></div>
+      <div class="sidebar-link" data-panel="enquiries"><i class="fa-solid fa-message-dots"></i><span>My Enquiries</span></div>
+      <div class="sidebar-link" data-panel="visits"><i class="fa-solid fa-calendar-check"></i><span>Site Visits</span></div>
+      <div class="sidebar-section-label">Account</div>
+      <div class="sidebar-link" data-panel="profile"><i class="fa-solid fa-user"></i><span>My Profile</span></div>
+      <div class="sidebar-link" data-panel="docs"><i class="fa-solid fa-file-invoice"></i><span>Documents</span></div>
+      <div class="sidebar-link"><i class="fa-solid fa-bell"></i><span>Notifications</span></div>
+      <a href="index.html" class="sidebar-link" style="margin-top:auto"><i class="fa-solid fa-arrow-left"></i><span>Back to Site</span></a>
+      <a href="login.html" class="sidebar-link"><i class="fa-solid fa-right-from-bracket"></i><span>Sign Out</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <img src="https://i.pravatar.cc/80?img=12" alt="User" class="sidebar-user-avatar">
+        <div><div class="sidebar-user-name">Rajesh Kumar</div><div class="sidebar-user-role">Premium Member</div></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="dashboard-main">
+    <div class="dashboard-topbar">
+      <div class="topbar-title">My Dashboard</div>
+      <div class="topbar-actions">
+        <div class="topbar-icon-btn"><i class="fa-regular fa-bell"></i><div class="badge-dot"></div></div>
+        <div class="topbar-icon-btn"><i class="fa-regular fa-message"></i></div>
+        <img src="https://i.pravatar.cc/80?img=12" alt="User" style="width:36px;height:36px;border-radius:50%;cursor:pointer;border:2px solid var(--gold)">
+      </div>
+    </div>
+
+    <div class="dashboard-content">
+
+      <!-- OVERVIEW PANEL -->
+      <div class="dash-panel active" id="overview">
+        <div style="margin-bottom:24px">
+          <h2 style="font-family:var(--font-display);color:var(--navy);margin-bottom:4px">Good Morning, Rajesh! 👋</h2>
+          <p style="color:var(--text-muted);font-size:0.9rem">Here's a snapshot of your STACKLY journey.</p>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background:#FEF3C7;color:#D97706"><i class="fa-solid fa-heart"></i></div>
+            <div class="kpi-label">Saved Properties</div>
+            <div class="kpi-value">4</div>
+            <div class="kpi-change up"><i class="fa-solid fa-arrow-up"></i> 1 added this week</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background:#DBEAFE;color:#2563EB"><i class="fa-solid fa-message"></i></div>
+            <div class="kpi-label">Enquiries Sent</div>
+            <div class="kpi-value">3</div>
+            <div class="kpi-change up"><i class="fa-solid fa-arrow-up"></i> 2 pending response</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background:#DCFCE7;color:#16A34A"><i class="fa-solid fa-calendar-check"></i></div>
+            <div class="kpi-label">Site Visits</div>
+            <div class="kpi-value">1</div>
+            <div class="kpi-change up"><i class="fa-solid fa-clock"></i> Next: Jun 14</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background:#FCE7F3;color:#DB2777"><i class="fa-solid fa-star"></i></div>
+            <div class="kpi-label">Member Since</div>
+            <div class="kpi-value">2024</div>
+            <div class="kpi-change" style="color:var(--gold)"><i class="fa-solid fa-crown"></i> Premium Member</div>
+          </div>
+        </div>
+        <!-- Recent Activity -->
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm)">
+          <h4 style="color:var(--navy);margin-bottom:20px;font-family:var(--font-sans);font-size:1rem;font-weight:700">Recent Activity</h4>
+          <table class="data-table">
+            <thead><tr><th>Action</th><th>Property</th><th>Date</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Enquiry Sent</td><td>Celestia Heights, 3BHK</td><td>Jun 10, 2025</td><td><span class="status-badge pending">Pending</span></td></tr>
+              <tr><td>Site Visit Booked</td><td>Azure Villas, 4BHK</td><td>Jun 8, 2025</td><td><span class="status-badge confirmed">Confirmed</span></td></tr>
+              <tr><td>Property Saved</td><td>The Pinnacle, Penthouse</td><td>Jun 5, 2025</td><td><span class="status-badge active">Saved</span></td></tr>
+              <tr><td>Enquiry Sent</td><td>Emerald Grove Villa</td><td>May 28, 2025</td><td><span class="status-badge active">Responded</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SAVED PROPERTIES -->
+      <div class="dash-panel" id="savedProps">
+        <div style="margin-bottom:24px"><h2 style="font-family:var(--font-display);color:var(--navy)">Saved Properties</h2></div>
+        <div class="grid-2">
+          <div class="property-card"><div class="property-img" style="height:180px"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&q=80" alt="" style="width:100%;height:100%;object-fit:cover" loading="lazy"><span class="property-badge new">New Launch</span></div><div class="property-body"><div class="property-type">Apartment</div><div class="property-name">Celestia Heights</div><div class="property-loc"><i class="fa-solid fa-location-dot"></i> Velachery</div><div class="property-footer"><div class="property-price">₹1.85 Cr<small>Onwards</small></div><a href="contact.html" class="btn btn-gold" style="padding:8px 16px;font-size:0.75rem">Enquire</a></div></div></div>
+          <div class="property-card"><div class="property-img" style="height:180px"><img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=500&q=80" alt="" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div><div class="property-body"><div class="property-type">Villa</div><div class="property-name">Azure Villas</div><div class="property-loc"><i class="fa-solid fa-location-dot"></i> ECR, Chennai</div><div class="property-footer"><div class="property-price">₹4.20 Cr<small>Onwards</small></div><a href="contact.html" class="btn btn-gold" style="padding:8px 16px;font-size:0.75rem">Enquire</a></div></div></div>
+          <div class="property-card"><div class="property-img" style="height:180px"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&q=80" alt="" style="width:100%;height:100%;object-fit:cover" loading="lazy"><span class="property-badge new">Exclusive</span></div><div class="property-body"><div class="property-type">Penthouse</div><div class="property-name">The Pinnacle</div><div class="property-loc"><i class="fa-solid fa-location-dot"></i> Adyar, Chennai</div><div class="property-footer"><div class="property-price">₹9.50 Cr<small>Onwards</small></div><a href="contact.html" class="btn btn-gold" style="padding:8px 16px;font-size:0.75rem">Enquire</a></div></div></div>
+          <div class="property-card"><div class="property-img" style="height:180px"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500&q=80" alt="" style="width:100%;height:100%;object-fit:cover" loading="lazy"><span class="property-badge new">New Launch</span></div><div class="property-body"><div class="property-type">Villa</div><div class="property-name">Emerald Grove</div><div class="property-loc"><i class="fa-solid fa-location-dot"></i> Sholinganallur</div><div class="property-footer"><div class="property-price">₹3.60 Cr<small>Onwards</small></div><a href="contact.html" class="btn btn-gold" style="padding:8px 16px;font-size:0.75rem">Enquire</a></div></div></div>
+        </div>
+      </div>
+
+      <!-- ENQUIRIES -->
+      <div class="dash-panel" id="enquiries">
+        <div style="margin-bottom:24px"><h2 style="font-family:var(--font-display);color:var(--navy)">My Enquiries</h2></div>
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm)">
+          <table class="data-table">
+            <thead><tr><th>Property</th><th>Type</th><th>Budget</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Celestia Heights</strong><br><small>3 BHK, 1850 sq.ft</small></td><td>Apartment</td><td>₹1.85 Cr</td><td>Jun 10, 2025</td><td><span class="status-badge pending">Pending</span></td><td><a href="contact.html" style="color:var(--gold);font-size:0.82rem">Follow Up</a></td></tr>
+              <tr><td><strong>Azure Villas</strong><br><small>4 BHK, 3200 sq.ft</small></td><td>Villa</td><td>₹4.20 Cr</td><td>Jun 2, 2025</td><td><span class="status-badge active">Responded</span></td><td><a href="contact.html" style="color:var(--gold);font-size:0.82rem">View Reply</a></td></tr>
+              <tr><td><strong>Emerald Grove</strong><br><small>4 BHK Villa</small></td><td>Villa</td><td>₹3.60 Cr</td><td>May 28, 2025</td><td><span class="status-badge active">Responded</span></td><td><a href="contact.html" style="color:var(--gold);font-size:0.82rem">View Reply</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SITE VISITS -->
+      <div class="dash-panel" id="visits">
+        <div style="margin-bottom:24px"><h2 style="font-family:var(--font-display);color:var(--navy)">Site Visits</h2></div>
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm)">
+          <table class="data-table">
+            <thead><tr><th>Property</th><th>Date & Time</th><th>Location</th><th>Advisor</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Azure Villas</strong></td><td>Jun 14, 2025 · 11:00 AM</td><td>ECR, Chennai</td><td>Priya Nair</td><td><span class="status-badge confirmed">Confirmed</span></td></tr>
+            </tbody>
+          </table>
+          <div style="margin-top:20px">
+            <a href="contact.html" class="btn btn-gold">Book a New Site Visit <i class="fa-solid fa-calendar-plus"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE -->
+      <div class="dash-panel" id="profile">
+        <div style="margin-bottom:24px"><h2 style="font-family:var(--font-display);color:var(--navy)">My Profile</h2></div>
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:40px;box-shadow:var(--shadow-sm);max-width:600px">
+          <div style="display:flex;align-items:center;gap:24px;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--ivory-mid)">
+            <img src="https://i.pravatar.cc/100?img=12" alt="User" style="width:80px;height:80px;border-radius:50%;border:3px solid var(--gold)">
+            <div>
+              <h3 style="color:var(--navy);font-size:1.4rem;margin-bottom:4px">Rajesh Kumar</h3>
+              <p style="color:var(--gold);font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em">Premium Member</p>
+            </div>
+          </div>
+          <form>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div><label class="form-label">First Name</label><input class="form-input" value="Rajesh"></div>
+              <div><label class="form-label">Last Name</label><input class="form-input" value="Kumar"></div>
+              <div><label class="form-label">Email</label><input class="form-input" type="email" value="rajesh@email.com"></div>
+              <div><label class="form-label">Phone</label><input class="form-input" value="+91 98400 12345"></div>
+              <div style="grid-column:1/-1"><label class="form-label">City</label><input class="form-input" value="Chennai, Tamil Nadu"></div>
+            </div>
+            <div style="margin-top:20px">
+              <button type="submit" class="btn btn-gold">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- DOCUMENTS -->
+      <div class="dash-panel" id="docs">
+        <div style="margin-bottom:24px"><h2 style="font-family:var(--font-display);color:var(--navy)">My Documents</h2></div>
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm)">
+          <p style="color:var(--text-muted);margin-bottom:20px">Documents shared by STACKLY for your properties will appear here.</p>
+          <div style="border:2px dashed var(--border);border-radius:var(--radius-lg);padding:40px;text-align:center">
+            <i class="fa-solid fa-folder-open" style="font-size:2.5rem;color:var(--gold);margin-bottom:12px;display:block"></i>
+            <p style="color:var(--text-muted);font-size:0.88rem">No documents yet. Documents will be uploaded after your site visit.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /dashboard-content -->
+  </main>
+</div>
+</body>
+</html>

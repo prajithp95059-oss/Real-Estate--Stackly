@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Services — STACKLY Real Estate</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<nav class="navbar scrolled">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo-stackly.png" alt="STACKLY" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-text" style="display:none">STACK<span>LY</span></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="services.html" class="nav-link active">Services</a></li>
+      <li><a href="projects.html" class="nav-link">Projects</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="login.html" class="btn btn-gold nav-cta">Login</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="projects.html" class="nav-link">Projects</a>
+  <a href="blog.html" class="nav-link">Blog</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <li><a href="login.html" class="btn btn-gold nav-cta">Login</a></li>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">What We Offer</div>
+    <h1>Full-Spectrum <em style="color:var(--gold);font-style:italic">Real Estate</em> Services</h1>
+    <div class="gold-divider"></div>
+    <nav class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Services</span></nav>
+  </div>
+</section>
+
+<!-- SERVICES LIST -->
+<section class="section-pad" style="background:var(--ivory)">
+  <div class="container">
+
+    <div class="service-item">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1627640268913-91cfd4675b65?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Residential Development" loading="lazy">
+      </div>
+      <div class="service-content">
+        <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+        <div class="eyebrow">01 &nbsp; Core Service</div>
+        <h3 class="section-title">Residential <span>Development</span></h3>
+        <div class="gold-divider"></div>
+        <p>From compact luxury studios to sky-level penthouses, STACKLY designs and develops residences that define new standards. Every project begins with an in-depth understanding of its buyers' aspirations.</p>
+        <ul class="split-list" style="margin-top:24px; color:var(--text-mid)">
+          <li class="split-list-item" style="color:var(--text-mid)"><i class="fa-solid fa-check" style="color:var(--gold)"></i> Custom floor plans and bespoke interior finishes</li>
+          <li class="split-list-item" style="color:var(--text-mid)"><i class="fa-solid fa-check" style="color:var(--gold)"></i> Smart home automation pre-installed</li>
+          <li class="split-list-item" style="color:var(--text-mid)"><i class="fa-solid fa-check" style="color:var(--gold)"></i> Post-possession warranty and maintenance</li>
+        </ul>
+        <div style="margin-top:28px"><a href="contact.html" class="btn btn-gold">Enquire Now <i class="fa-solid fa-arrow-right"></i></a></div>
+      </div>
+    </div>
+
+    <div class="service-item reverse">
+      <div class="service-content" style="background:var(--navy)">
+        <div class="service-icon"><i class="fa-solid fa-city"></i></div>
+        <div class="eyebrow" style="color:var(--gold-light)">02 &nbsp; Commercial</div>
+        <h3 class="section-title" style="color:var(--white)">Commercial <span>Spaces</span></h3>
+        <div class="gold-divider"></div>
+        <p style="color:rgba(255,255,255,0.65)">STACKLY's commercial portfolio delivers Grade-A office spaces, retail high-streets, and mixed-use developments that become business destinations in their own right.</p>
+        <ul class="split-list" style="margin-top:24px">
+          <li class="split-list-item"><i class="fa-solid fa-check"></i> LEED-certified Grade-A offices</li>
+          <li class="split-list-item"><i class="fa-solid fa-check"></i> Flexible floor plates from 5,000 sq.ft</li>
+          <li class="split-list-item"><i class="fa-solid fa-check"></i> Retail, F&B, and coworking configurations</li>
+        </ul>
+        <div style="margin-top:28px"><a href="contact.html" class="btn btn-gold">Enquire Now <i class="fa-solid fa-arrow-right"></i></a></div>
+      </div>
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=90" alt="Commercial" loading="lazy">
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=90" alt="Interior Design" loading="lazy">
+      </div>
+      <div class="service-content">
+        <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+        <div class="eyebrow">03 &nbsp; Design Studio</div>
+        <h3 class="section-title">Interior <span>Design</span></h3>
+        <div class="gold-divider"></div>
+        <p>Our in-house design studio transforms empty spaces into bespoke homes. From concept boards to final installation, STACKLY's designers bring your vision to life with impeccable craft.</p>
+        <ul class="split-list" style="margin-top:24px; color:var(--text-mid)">
+          <li class="split-list-item" style="color:var(--text-mid)"><i class="fa-solid fa-check" style="color:var(--gold)"></i> Mood-board & 3D walk-through visualisation</li>
+          <li class="split-list-item" style="color:var(--text-mid)"><i class="fa-solid fa-check" style="color:var(--gold)"></i> Italian marble, teak, and imported fixtures</li>
+          <li class="split-list-item" style="color:var(--text-mid)"><i class="fa-solid fa-check" style="color:var(--gold)"></i> Fixed-price turnkey packages available</li>
+        </ul>
+        <div style="margin-top:28px"><a href="contact.html" class="btn btn-gold">Enquire Now <i class="fa-solid fa-arrow-right"></i></a></div>
+      </div>
+    </div>
+
+    <div class="service-item reverse">
+      <div class="service-content" style="background:var(--navy-light)">
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="eyebrow" style="color:var(--gold-light)">04 &nbsp; Investments</div>
+        <h3 class="section-title" style="color:var(--white)">Property <span>Investment</span></h3>
+        <div class="gold-divider"></div>
+        <p style="color:rgba(255,255,255,0.65)">Our investment advisory team guides you through portfolio-building in India's most dynamic real estate markets, with exclusive pre-launch access for existing clients.</p>
+        <ul class="split-list" style="margin-top:24px">
+          <li class="split-list-item"><i class="fa-solid fa-check"></i> Personalised ROI projections</li>
+          <li class="split-list-item"><i class="fa-solid fa-check"></i> Pre-launch pricing access</li>
+          <li class="split-list-item"><i class="fa-solid fa-check"></i> Rental yield and resale guidance</li>
+        </ul>
+        <div style="margin-top:28px"><a href="contact.html" class="btn btn-gold">Enquire Now <i class="fa-solid fa-arrow-right"></i></a></div>
+      </div>
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=90" alt="Investment" loading="lazy">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section-pad" style="background:var(--white)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:60px">
+      <div class="eyebrow" style="justify-content:center">How It Works</div>
+      <h2 class="section-title">Your Journey to <span>Ownership</span></h2>
+      <div class="gold-divider center"></div>
+    </div>
+    <div class="grid-4">
+      <div style="text-align:center; padding:32px 20px">
+        <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--navy)">1</div>
+        <h4 style="color:var(--navy);margin-bottom:10px">Discover</h4>
+        <p style="font-size:0.88rem">Browse our curated portfolio and shortlist properties that match your lifestyle.</p>
+      </div>
+      <div style="text-align:center; padding:32px 20px">
+        <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--navy)">2</div>
+        <h4 style="color:var(--navy);margin-bottom:10px">Visit</h4>
+        <p style="font-size:0.88rem">Schedule a guided site visit with a dedicated STACKLY advisor for an immersive experience.</p>
+      </div>
+      <div style="text-align:center; padding:32px 20px">
+        <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--navy)">3</div>
+        <h4 style="color:var(--navy);margin-bottom:10px">Reserve</h4>
+        <p style="font-size:0.88rem">Book your preferred unit with transparent documentation and zero hidden charges.</p>
+      </div>
+      <div style="text-align:center; padding:32px 20px">
+        <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--navy)">4</div>
+        <h4 style="color:var(--navy);margin-bottom:10px">Own</h4>
+        <p style="font-size:0.88rem">Receive the keys to your STACKLY home and begin your extraordinary chapter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-stackly.png" alt="STACKLY" class="footer-logo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--white);display:none">STACK<span style="color:var(--gold)">LY</span></span>
+        <p>Crafting extraordinary living experiences across India's most coveted addresses since 2006.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Projects</a>
+          <a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Services</a>
+          <a href="blog.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blog</a>
+          <a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a>
+          <a href="login.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Login</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Properties</h5>
+        <div class="footer-links">
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Luxury Apartments</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Premium Villas</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Sky Penthouses</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Commercial Spaces</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Upcoming Projects</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, <br>Tamil Nadu  –  636008</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+91 44 4567 8901</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>hello@stackly.in</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon–Sat: 9 AM – 7 PM</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 STACKLY Real Estate. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">RERA Disclosures</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

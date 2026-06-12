@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Projects — STACKLY Real Estate</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<nav class="navbar scrolled">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo-stackly.png" alt="STACKLY" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-text" style="display:none">STACK<span>LY</span></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="projects.html" class="nav-link active">Projects</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="login.html" class="btn btn-gold nav-cta">Login</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="projects.html" class="nav-link">Projects</a>
+  <a href="blog.html" class="nav-link">Blog</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <li><a href="login.html" class="btn btn-gold nav-cta">Login</a></li>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Our Portfolio</div>
+    <h1>Discover <em style="color:var(--gold);font-style:italic">Extraordinary</em> Homes</h1>
+    <div class="gold-divider"></div>
+    <nav class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Projects</span></nav>
+  </div>
+</section>
+
+<section class="section-pad" style="background:var(--ivory)">
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="apartment">Apartments</button>
+      <button class="filter-btn" data-filter="villa">Villas</button>
+      <button class="filter-btn" data-filter="penthouse">Penthouses</button>
+      <button class="filter-btn" data-filter="commercial">Commercial</button>
+      <div class="filter-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="propertySearch" placeholder="Search by name or location…">
+      </div>
+    </div>
+    <div class="grid-3" id="projectsGrid">
+      <div class="property-card" data-type="apartment">
+        <div class="property-img"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=700&q=85" alt="Celestia Heights" loading="lazy"><span class="property-badge new">New Launch</span><div class="property-wishlist"><i class="fa-regular fa-heart"></i></div></div>
+        <div class="property-body">
+          <div class="property-type">Luxury Apartment</div>
+          <div class="property-name">Celestia Heights</div>
+          <div class="property-loc"><i class="fa-solid fa-location-dot"></i> Velachery, Chennai</div>
+          <div class="property-specs"><div class="spec-item"><strong>3 BHK</strong>Config</div><div class="spec-item"><strong>1,850</strong>sq.ft</div><div class="spec-item"><strong>18th</strong>Floor</div></div>
+          <div class="property-footer"><div class="property-price">₹1.85 Cr<small>Onwards</small></div><a href="contact.html" class="btn btn-gold" style="padding:10px 20px;font-size:0.78rem">Enquire</a></div>
+        </div>
+      </div>
+      <div class="property-card" data-type="villa">
+        <div class="property-img"><img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=700&q=85" alt="Azure Villas" loading="lazy"><span class="property-badge">Ready to Move</span><div class="property-wishlist"><i class="fa-regular fa-heart"></i></div></div>
+        <div class="property-body">
+          <div class="property-type">Premium Villa</div>
+          <div class="property-name">Azure Villas</div>
+          <div class="property-loc"><i class="fa-solid fa-location-dot"></i> ECR, Chennai</div>
+          <div class="property-specs"><div class="spec-item"><strong>4 BHK</strong>Config</div><div class="spec-item"><strong>3,200</strong>sq.ft</div><div class="spec-item"><strong>Private</strong>Pool</div></div>
+          <div class="property-footer"><div class="property-price">₹4.20 Cr<small>Onwards</small></div><a href="contact.html" class="btn btn-gold" style="padding:10px 20px;font-size:0.78rem">Enquire</a></div>
+        </div>
+      </div>
+      <div class="property-card" data-type="penthouse">
+        <div class="property-img"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=85" alt="The Pinnacle" loading="lazy"><span class="property-badge new">Exclusive</span><div class="property-wishlist"><i class="fa-regular fa-heart"></i></div></div>
+        <div class="property-body">
+          <div class="property-type">Sky Penthouse</div>
+          <div class="property-name">The Pinnacle</div>
+          <div class="property-loc"><i class="fa-solid fa-location-dot"></i> Adyar, Chennai</div>
+          <div class="property-specs"><div class="spec-item"><strong>5 BHK</strong>Config</div><div class="spec-item"><strong>5,400</strong>sq.ft</div><div class="spec-item"><strong>Sky</strong>Deck</div></div>
+          <div class="property-footer"><div class="property-price">₹9.50 Cr<small>Onwards</small></div><a href="contact.html" class="btn btn-gold" style="padding:10px 20px;font-size:0.78rem">Enquire</a></div>
+        </div>
+      </div>
+      <div class="property-card" data-type="apartment">
+        <div class="property-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=85" alt="Serene Heights" loading="lazy"><span class="property-badge">Under Construction</span><div class="property-wishlist"><i class="fa-regular fa-heart"></i></div></div>
+        <div class="property-body">
+          <div class="property-type">Luxury Apartment</div>
+          <div class="property-name">Serene Heights</div>
+          <div class="property-loc"><i class="fa-solid fa-location-dot"></i> OMR, Chennai</div>
+          <div class="property-specs"><div class="spec-item"><strong>2 BHK</strong>Config</div><div class="spec-item"><strong>1,200</strong>sq.ft</div><div class="spec-item"><strong>2026</strong>Possession</div></div>
+          <div class="property-footer"><div class="property-price">₹98 L<small>Onwards</small></div><a href="contact.html" class="btn btn-gold" style="padding:10px 20px;font-size:0.78rem">Enquire</a></div>
+        </div>
+      </div>
+      <div class="property-card" data-type="villa">
+        <div class="property-img"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=700&q=85" alt="Emerald Grove" loading="lazy"><span class="property-badge new">New Launch</span><div class="property-wishlist"><i class="fa-regular fa-heart"></i></div></div>
+        <div class="property-body">
+          <div class="property-type">Villa Community</div>
+          <div class="property-name">Emerald Grove</div>
+          <div class="property-loc"><i class="fa-solid fa-location-dot"></i> Sholinganallur</div>
+          <div class="property-specs"><div class="spec-item"><strong>4 BHK</strong>Config</div><div class="spec-item"><strong>2,800</strong>sq.ft</div><div class="spec-item"><strong>60+</strong>Units</div></div>
+          <div class="property-footer"><div class="property-price">₹3.60 Cr<small>Onwards</small></div><a href="contact.html" class="btn btn-gold" style="padding:10px 20px;font-size:0.78rem">Enquire</a></div>
+        </div>
+      </div>
+      <div class="property-card" data-type="commercial">
+        <div class="property-img"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=700&q=85" alt="STACKLY One" loading="lazy"><span class="property-badge">Ready to Occupy</span><div class="property-wishlist"><i class="fa-regular fa-heart"></i></div></div>
+        <div class="property-body">
+          <div class="property-type">Commercial Office</div>
+          <div class="property-name">STACKLY One</div>
+          <div class="property-loc"><i class="fa-solid fa-location-dot"></i> Nungambakkam</div>
+          <div class="property-specs"><div class="spec-item"><strong>Grade A</strong>Spec</div><div class="spec-item"><strong>12,000</strong>sq.ft</div><div class="spec-item"><strong>LEED</strong>Gold</div></div>
+          <div class="property-footer"><div class="property-price">₹180/sq.ft<small>Lease / Month</small></div><a href="contact.html" class="btn btn-gold" style="padding:10px 20px;font-size:0.78rem">Enquire</a></div>
+        </div>
+      </div>
+      <div class="property-card" data-type="apartment">
+        <div class="property-img"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=85" alt="Vista Palms" loading="lazy"><span class="property-badge">Ready to Move</span><div class="property-wishlist"><i class="fa-regular fa-heart"></i></div></div>
+        <div class="property-body">
+          <div class="property-type">Luxury Apartment</div>
+          <div class="property-name">Vista Palms</div>
+          <div class="property-loc"><i class="fa-solid fa-location-dot"></i> Guindy, Chennai</div>
+          <div class="property-specs"><div class="spec-item"><strong>3 BHK</strong>Config</div><div class="spec-item"><strong>1,650</strong>sq.ft</div><div class="spec-item"><strong>12th</strong>Floor</div></div>
+          <div class="property-footer"><div class="property-price">₹1.50 Cr<small>Onwards</small></div><a href="contact.html" class="btn btn-gold" style="padding:10px 20px;font-size:0.78rem">Enquire</a></div>
+        </div>
+      </div>
+      <div class="property-card" data-type="penthouse">
+        <div class="property-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=85" alt="Cloud Nine" loading="lazy"><span class="property-badge new">Limited Units</span><div class="property-wishlist"><i class="fa-regular fa-heart"></i></div></div>
+        <div class="property-body">
+          <div class="property-type">Duplex Penthouse</div>
+          <div class="property-name">Cloud Nine</div>
+          <div class="property-loc"><i class="fa-solid fa-location-dot"></i> Besant Nagar</div>
+          <div class="property-specs"><div class="spec-item"><strong>4 BHK</strong>Config</div><div class="spec-item"><strong>4,200</strong>sq.ft</div><div class="spec-item"><strong>Duplex</strong>Layout</div></div>
+          <div class="property-footer"><div class="property-price">₹7.20 Cr<small>Onwards</small></div><a href="contact.html" class="btn btn-gold" style="padding:10px 20px;font-size:0.78rem">Enquire</a></div>
+        </div>
+      </div>
+      <div class="property-card" data-type="commercial">
+        <div class="property-img"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=85" alt="The Exchange" loading="lazy"><span class="property-badge">Under Construction</span><div class="property-wishlist"><i class="fa-regular fa-heart"></i></div></div>
+        <div class="property-body">
+          <div class="property-type">Retail & Office</div>
+          <div class="property-name">The Exchange</div>
+          <div class="property-loc"><i class="fa-solid fa-location-dot"></i> Anna Nagar</div>
+          <div class="property-specs"><div class="spec-item"><strong>Mixed</strong>Use</div><div class="spec-item"><strong>40,000</strong>sq.ft</div><div class="spec-item"><strong>2027</strong>Opening</div></div>
+          <div class="property-footer"><div class="property-price">On Request<small>Commercial</small></div><a href="contact.html" class="btn btn-gold" style="padding:10px 20px;font-size:0.78rem">Enquire</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-stackly.png" alt="STACKLY" class="footer-logo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--white);display:none">STACK<span style="color:var(--gold)">LY</span></span>
+        <p>Crafting extraordinary living experiences across India's most coveted addresses since 2006.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Projects</a>
+          <a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Services</a>
+          <a href="blog.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blog</a>
+          <a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a>
+          <a href="login.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Login</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Properties</h5>
+        <div class="footer-links">
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Luxury Apartments</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Premium Villas</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Sky Penthouses</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Commercial Spaces</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Upcoming Projects</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, <br>Tamil Nadu  –  636008</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+91 44 4567 8901</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>hello@stackly.in</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon–Sat: 9 AM – 7 PM</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 STACKLY Real Estate. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">RERA Disclosures</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

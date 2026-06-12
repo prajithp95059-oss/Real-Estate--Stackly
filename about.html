@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About — STACKLY Real Estate</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<nav class="navbar scrolled">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo-stackly.png" alt="STACKLY" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-text" style="display:none">STACK<span>LY</span></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link active">About</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="projects.html" class="nav-link">Projects</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="login.html" class="btn btn-gold nav-cta">Login</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="projects.html" class="nav-link">Projects</a>
+  <a href="blog.html" class="nav-link">Blog</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <li><a href="login.html" class="btn btn-gold nav-cta">Login</a></li>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Our Story</div>
+    <h1>Building <em style="color:var(--gold);font-style:italic">Dreams,</em><br>Delivering Trust</h1>
+    <div class="gold-divider"></div>
+    <nav class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>About Us</span></nav>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section-pad" style="background:var(--white)">
+  <div class="container grid-2" style="align-items:center; gap:80px">
+    <div>
+      <div class="eyebrow">Who We Are</div>
+      <h2 class="section-title">18 Years of <span>Uncompromised</span> Excellence</h2>
+      <div class="gold-divider"></div>
+      <p style="margin-bottom:20px">Founded in 2006 in Chennai, STACKLY began with a single ambition: to develop residences that reflect the aspirations of India's finest families. From a modest first project to over 120 delivered across 8 cities, our journey is one of consistent excellence.</p>
+      <p>Every decision — from land acquisition to final handover — is guided by one question: does this meet the standard of a STACKLY home?</p>
+      <div style="display:flex;gap:40px;margin-top:36px">
+        <div>
+          <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1"><span data-target="120">0</span>+</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px">Projects</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1"><span data-target="2400">0</span>+</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px">Families</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1"><span data-target="18">0</span>+</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px">Awards</div>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg)">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=90" alt="STACKLY HQ" style="width:100%;height:480px;object-fit:cover">
+    </div>
+  </div>
+</section>
+
+<!-- MISSION VISION -->
+<section class="section-pad" style="background:var(--navy)">
+  <div class="container grid-2">
+    <div style="padding:48px;border-radius:var(--radius-xl);border:1px solid rgba(201,168,76,0.25)">
+      <div style="width:56px;height:56px;border-radius:var(--radius-md);background:rgba(201,168,76,0.15);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.4rem;margin-bottom:24px"><i class="fa-solid fa-eye"></i></div>
+      <h3 style="color:var(--white);margin-bottom:12px">Our Vision</h3>
+      <p style="color:rgba(255,255,255,0.65)">To be India's most admired luxury developer — building not just structures, but legacy addresses that endure across generations.</p>
+    </div>
+    <div style="padding:48px;border-radius:var(--radius-xl);background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25)">
+      <div style="width:56px;height:56px;border-radius:var(--radius-md);background:var(--gold);display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:1.4rem;margin-bottom:24px"><i class="fa-solid fa-bullseye"></i></div>
+      <h3 style="color:var(--white);margin-bottom:12px">Our Mission</h3>
+      <p style="color:rgba(255,255,255,0.65)">To deliver extraordinary value through design integrity, ethical practices, and an unshakeable commitment to the buyer's long-term satisfaction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section-pad" style="background:var(--ivory)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:56px">
+      <div class="eyebrow" style="justify-content:center">Leadership</div>
+      <h2 class="section-title">Meet the <span>Minds</span> Behind</h2>
+      <div class="gold-divider center"></div>
+    </div>
+    <div class="grid-4">
+      <div class="team-card">
+        <div class="team-img"><img src="https://i.pravatar.cc/200?img=51" alt="Vivek Rajan"></div>
+        <div class="team-name">Vivek Rajan</div>
+        <div class="team-role">Founder & CEO</div>
+        <div class="team-bio">Visionary leader with 25+ years in premium real estate development across South India.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><img src="https://i.pravatar.cc/200?img=47" alt="Ananya Krishnan"></div>
+        <div class="team-name">Ananya Krishnan</div>
+        <div class="team-role">Chief Design Officer</div>
+        <div class="team-bio">Award-winning architect who has redefined luxury aesthetics for urban India.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><img src="https://i.pravatar.cc/200?img=59" alt="Suresh Menon"></div>
+        <div class="team-name">Suresh Menon</div>
+        <div class="team-role">Director, Projects</div>
+        <div class="team-bio">Oversees on-time, on-quality delivery across all active developments.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><img src="https://i.pravatar.cc/200?img=32" alt="Meera Pillai"></div>
+        <div class="team-name">Meera Pillai</div>
+        <div class="team-role">VP, Customer Experience</div>
+        <div class="team-bio">Ensures every buyer's journey from enquiry to handover is seamless and memorable.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MILESTONE TIMELINE -->
+<section class="section-pad" style="background:var(--white)">
+  <div class="container grid-2" style="align-items:start;gap:80px">
+    <div>
+      <div class="eyebrow">Our Journey</div>
+      <h2 class="section-title">Milestones That <span>Defined</span> Us</h2>
+      <div class="gold-divider"></div>
+      <p style="margin-top:12px">Each year brought new ambitions, harder challenges, and prouder deliveries.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2006</div>
+        <div class="timeline-title">The Beginning</div>
+        <div class="timeline-text">Founded with a 12-unit apartment project in Adyar, Chennai. Sold out in 48 hours.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2010</div>
+        <div class="timeline-title">First Villa Community</div>
+        <div class="timeline-text">Launched Azure Shores — 40 premium villas along ECR. Set the benchmark for coastal luxury.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2015</div>
+        <div class="timeline-title">National Expansion</div>
+        <div class="timeline-text">Entered Bengaluru, Hyderabad and Kochi markets. 500 families housed by year-end.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2019</div>
+        <div class="timeline-title">IGBC Green Certified</div>
+        <div class="timeline-text">All new projects mandated to meet IGBC Gold Standard — a first among Chennai developers.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2024</div>
+        <div class="timeline-title">2,400 Families & Counting</div>
+        <div class="timeline-text">Crossed the landmark with The Pinnacle penthouse collection — our finest work yet.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="cta-band-bg" style="background-image:url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1920&q=90')"></div>
+  <div class="cta-band-overlay"></div>
+  <div class="container cta-band-content">
+    <h2 style="color:var(--white)">Be Part of the <em style="color:var(--gold)">STACKLY Legacy</em></h2>
+    <p>Explore homes crafted to the highest standards or speak with our advisors today.</p>
+    <div class="cta-actions">
+      <a href="projects.html" class="btn btn-gold">View Properties</a>
+      <a href="contact.html" class="btn btn-outline" style="color:var(--white);border-color:var(--white)">Get in Touch</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+ <footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-stackly.png" alt="STACKLY" class="footer-logo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--white);display:none">STACK<span style="color:var(--gold)">LY</span></span>
+        <p>Crafting extraordinary living experiences across India's most coveted addresses since 2006.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Projects</a>
+          <a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Services</a>
+          <a href="blog.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blog</a>
+          <a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a>
+          <a href="login.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Login</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Properties</h5>
+        <div class="footer-links">
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Luxury Apartments</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Premium Villas</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Sky Penthouses</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Commercial Spaces</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Upcoming Projects</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, <br>Tamil Nadu  –  636008</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+91 44 4567 8901</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>hello@stackly.in</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon–Sat: 9 AM – 7 PM</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 STACKLY Real Estate. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">RERA Disclosures</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

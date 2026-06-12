@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact — STACKLY Real Estate</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<nav class="navbar scrolled">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo-stackly.png" alt="STACKLY" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-text" style="display:none">STACK<span>LY</span></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="projects.html" class="nav-link">Projects</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="contact.html" class="nav-link active">Contact</a></li>
+      <li><a href="login.html" class="btn btn-gold nav-cta">Login</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="projects.html" class="nav-link">Projects</a>
+  <a href="blog.html" class="nav-link">Blog</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <li><a href="login.html" class="btn btn-gold nav-cta">Login</a></li>
+</div>
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Get in Touch</div>
+    <h1>Let's Find Your <em style="color:var(--gold);font-style:italic">Perfect Home</em></h1>
+    <div class="gold-divider"></div>
+    <nav class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Contact</span></nav>
+  </div>
+</section>
+
+<section class="section-pad" style="background:var(--ivory)">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- INFO SIDE -->
+      <div>
+        <div class="contact-info-card">
+          <h3>Visit Our Experience Centre</h3>
+          <p>Our sales team is ready to walk you through every detail — from floor plans to financing options.</p>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div><div class="contact-detail-label">Head Office</div><div class="contact-detail-val">23, Nungambakkam High Road, Chennai – 600 034, Tamil Nadu</div></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa-solid fa-phone"></i></div>
+            <div><div class="contact-detail-label">Sales Hotline</div><div class="contact-detail-val">+91 44 4567 8901<br>+91 98400 12345</div></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div><div class="contact-detail-label">Email</div><div class="contact-detail-val">hello@stackly.in<br>sales@stackly.in</div></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa-solid fa-clock"></i></div>
+            <div><div class="contact-detail-label">Working Hours</div><div class="contact-detail-val">Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: 10:00 AM – 5:00 PM</div></div>
+          </div>
+          <div style="margin-top:20px">
+            <div class="contact-detail-label" style="margin-bottom:12px">Follow Us</div>
+            <div style="display:flex;gap:10px">
+              <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Map placeholder -->
+        <div style="margin-top:20px;border-radius:var(--radius-xl);overflow:hidden;height:220px;background:var(--ivory-mid);display:flex;align-items:center;justify-content:center;border:2px dashed var(--border)">
+          <div style="text-align:center;color:var(--text-muted)"><i class="fa-solid fa-map-location-dot" style="font-size:2.5rem;color:var(--gold);margin-bottom:10px;display:block"></i><span style="font-size:0.88rem">Interactive Map<br><small>Google Maps integration</small></span></div>
+        </div>
+      </div>
+      <!-- FORM SIDE -->
+      <div class="contact-form-card">
+        <h3>Send an Enquiry</h3>
+        <p>Fill in the form and our advisor will get back within 2 business hours.</p>
+        <form>
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-input" placeholder="Rajesh" required>
+            </div>
+            <div class="form-row">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-input" placeholder="Kumar" required>
+            </div>
+            <div class="form-row">
+              <label class="form-label">Phone</label>
+              <input type="tel" class="form-input" placeholder="+91 98400 00000" required>
+            </div>
+            <div class="form-row">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" placeholder="you@email.com">
+            </div>
+            <div class="form-row full-row">
+              <label class="form-label">Property Interest</label>
+              <select class="form-input">
+                <option value="">Select type…</option>
+                <option>2 BHK Apartment</option>
+                <option>3 BHK Apartment</option>
+                <option>4 BHK Villa</option>
+                <option>Penthouse</option>
+                <option>Commercial Space</option>
+              </select>
+            </div>
+            <div class="form-row full-row">
+              <label class="form-label">Budget Range</label>
+              <select class="form-input">
+                <option>Below ₹1 Crore</option>
+                <option>₹1 – ₹2 Crore</option>
+                <option>₹2 – ₹5 Crore</option>
+                <option>₹5 Crore+</option>
+              </select>
+            </div>
+            <div class="form-row full-row">
+              <label class="form-label">Message</label>
+              <textarea class="form-input" rows="4" placeholder="Tell us more about what you're looking for…"></textarea>
+            </div>
+            <div class="full-row">
+              <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:16px">Send Enquiry <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE CENTRES -->
+<section class="section-pad-sm" style="background:var(--white)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="eyebrow" style="justify-content:center">We're Everywhere You Are</div>
+      <h3 class="section-title">Experience <span>Centres</span></h3>
+    </div>
+    <div class="grid-3">
+      <div style="background:var(--ivory);border-radius:var(--radius-lg);padding:32px;border-left:4px solid var(--gold)">
+        <h5 style="color:var(--navy);margin-bottom:6px">Chennai — Nungambakkam</h5>
+        <p style="font-size:0.85rem;margin-bottom:8px">23, Nungambakkam High Road, Chennai 600 034</p>
+        <span style="font-size:0.78rem;color:var(--gold);font-weight:600">FLAGSHIP CENTRE</span>
+      </div>
+      <div style="background:var(--ivory);border-radius:var(--radius-lg);padding:32px;border-left:4px solid var(--gold)">
+        <h5 style="color:var(--navy);margin-bottom:6px">Chennai — OMR</h5>
+        <p style="font-size:0.85rem;margin-bottom:8px">100 Feet Road, Sholinganallur, Chennai 600 119</p>
+        <span style="font-size:0.78rem;color:var(--gold);font-weight:600">PROJECT CENTRE</span>
+      </div>
+      <div style="background:var(--ivory);border-radius:var(--radius-lg);padding:32px;border-left:4px solid var(--gold)">
+        <h5 style="color:var(--navy);margin-bottom:6px">Bengaluru — Whitefield</h5>
+        <p style="font-size:0.85rem;margin-bottom:8px">ITPL Main Road, Whitefield, Bengaluru 560 066</p>
+        <span style="font-size:0.78rem;color:var(--gold);font-weight:600">BENGALURU CENTRE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-stackly.png" alt="STACKLY" class="footer-logo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--white);display:none">STACK<span style="color:var(--gold)">LY</span></span>
+        <p>Crafting extraordinary living experiences across India's most coveted addresses since 2006.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Projects</a>
+          <a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Services</a>
+          <a href="blog.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blog</a>
+          <a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a>
+          <a href="login.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Login</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Properties</h5>
+        <div class="footer-links">
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Luxury Apartments</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Premium Villas</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Sky Penthouses</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Commercial Spaces</a>
+          <a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Upcoming Projects</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, <br>Tamil Nadu  –  636008</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+91 44 4567 8901</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>hello@stackly.in</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon–Sat: 9 AM – 7 PM</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 STACKLY Real Estate. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">RERA Disclosures</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
